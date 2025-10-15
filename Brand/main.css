@@ -1,0 +1,49 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #DBE3EB;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3A3A3A;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #3A3A3A;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.icons img {
+  width: 20px;
+  margin-left: 15px;
+}
+
+.cta {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #4A5FC1;
+  transition: 0.3s ease;
+}
+
+.cta:hover {
+  background-color: #333;
+  transform: scale(1.03);
+  transition: 0.2s ease;
+}

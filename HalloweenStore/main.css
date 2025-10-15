@@ -1,0 +1,49 @@
+body {
+  font-family: sans-serif;
+  width: 800px;
+  margin: 0 auto;
+  border: 2px solid black;
+  background-color: white;
+  background-image: url("../images/bats.gif");
+  box-shadow: 5px 5px 15px black;
+}
+
+header, footer {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  padding: 10px;
+}
+
+header {
+  background: linear-gradient(45deg, white, orange 70%, black);
+}
+
+footer {
+  background: linear-gradient(45deg, black, orange 70%, white);
+  text-align: center;
+  font-size: 0.8em;
+}
+
+h1 {
+  color: orange;
+  text-shadow: 2px 2px 4px black;
+  font-style: italic;
+}
+
+a {
+  color: orange;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: green;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+h2:first-letter {
+  font-size: 200%;
+}
