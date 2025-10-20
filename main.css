@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #3A3A3A;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background-color: #DBE3EB;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: 700;
+  color: #3A3A3A;
+}
+
+nav a {
+  margin: 0 20px;
+  color: #3A3A3A;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Icons */
+.icons img {
+  width: 22px;
+  height: 22px;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+.hero {
+  padding: 100px 60px;
+  flex-grow: 1;
+}
+
+.shop-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.shop-btn:hover {
+  background-color: #333;
+}
+footer {
+  background-color: #DBE3EB;
+  color: #3A3A3A;
+  padding: 20px;
+  font-size: 16px;
+}
+footer p {
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  top: -100px;
+}
+footer a {
+  text-align: left;
+  font-size: 16px;
+  padding: 20px;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
