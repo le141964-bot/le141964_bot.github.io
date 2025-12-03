@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, inital-scale=1.0"> 
+<title>Interactive Image Gallery</title>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+    max-width: 1000px;
+    margin: 30px auto;
+  }
+
+  .pic {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .pic img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .pic:hover img {
+    transform: scale(1.1); 
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    padding: 10px; 
+    text-align: center;
+    color: #fff; 
+    background: rgba(0,0,0,0.55);
+    opacity: 0;
+    transform: translateY(100);
+    transition: opacity 0.4s ease, transform 0.4s;
+
+  }
+
+  .pic:hover .caption {
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  
+</style>
+
+
+
+</head>
+<body>
+    
+<div class="gallery">
+
+  <div class="pic">
+    <img src="image/Sunset.jpg">
+    <span class="caption">Sunset</span>
+  </div>
+
+  <div class="pic">
+    <img src="image/Sunrise.jpg">
+    <span class="caption">Sunrise</span>
+  </div>
+
+  <div class="pic">
+    <img src="image/School.jpg">
+    <span class="caption">School</span>
+  </div>
+
+  <div class="pic">
+    <img src="image/Forest.jpg">
+    <span class="caption">Forest</span>
+  </div>
+
+  <div class="pic">
+    <img src="image/beach.jpg">
+    <span class="caption">Beach</span>
+  </div>
+
+  <div class="pic">
+    <img src="image/Mountain.jpg">
+    <span class="caption">Mountains</span>
+  </div>
+
+</div>
+   </body>
+</html>

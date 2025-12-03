@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WeatherWise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="title">WeatherWise</h1>
+
+    <div class="search-container">
+        <input id="cityInput" type="text" placeholder="Enter a city...">
+        <button id="searchBtn">Search</button>
+    </div>
+
+    <div id="weatherCard" class="weather-card hidden">
+        <h2 id="cityName"></h2>
+        <div class="weather-main">
+            <img id="weatherIcon">
+            <h1 id="temp"></h1>
+        </div>
+
+        <div class="details">
+            <p id="humidity"></p>
+            <p id="wind"></p>
+        </div>
+    </div>
+
+    <div id="forecastSection" class="forecast hidden">
+        <h3>5-Day Forecast</h3>
+        <div id="forecastGrid" class="forecast-grid"></div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

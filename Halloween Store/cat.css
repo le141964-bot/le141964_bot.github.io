@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+#container {
+  width: 960px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+}
+
+main {
+    display: flex;
+    gap: 20px; 
+}
+
+.side-nav {
+    width: 150px;
+}
+
+section { 
+    flex: 1; 
+}
+
+.recomennded {
+    width: 200px; 
+    background: #f7e3ba;
+    padding: 15px; 
+    border: 2px solid black; 
+}
+
+header img#pumpkin-logo {
+  float: left;
+  margin-right: 10px;
+}
+
+.top-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.top-nav li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#left-sidebar {
+  float: left;
+  width: 150px;
+  margin-right: 20px;
+}
+
+#left-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#left-sidebar li {
+  margin-bottom: 10px;
+}
+
+#right-sidebar {
+  float: right;
+  width: 180px;
+  background-color: #F5DEB3;
+  padding: 10px;
+}
+
+#right-sidebar img {
+  width: 100px;
+  display: block;
+  margin-bottom: 5px;
+
+  transition: width 3s linear;
+  -webkit-transition: width 3s linear;
+  -moz-transition: width 3s linear;
+}
+
+#right-sidebar img:hover {
+  width: 125px;
+}
+
+#right-sidebar a:link,
+#right-sidebar a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+#right-sidebar a:hover,
+#right-sidebar a:focus {
+  color: green;
+}
+
+.product-info {
+    float: left; 
+    width: 450px; 
+    padding: 20px; 
+}
+
+#cat-img {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+
+  animation: catBounce 0.5s ease-in-out 6 alternate;
+}
+
+section h2,
+section p {
+  margin-left: 220px;
+}
+
+
+@keyframes catBounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}

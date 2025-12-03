@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festival Celebrations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ff6f61;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .button-container {
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff856a;
+    }
+
+    .festival {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px solid #ff6f61;
+      border-radius: 10px;
+      background-color: white;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    img {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>🎉 Festival Celebrations 🎉</header>
+
+  <div class="button-container">
+    <button onclick="showHalloween()">Halloween</button>
+    <button onclick="showChristmas()">Christmas</button>
+    <button onclick="showNewYear()">New Year</button>
+    <br>
+    <button onclick="hideHalloween()">Hide Halloween</button>
+    <button onclick="hideChristmas()">Hide Christmas</button>
+    <button onclick="hideNewYear()">Hide New Year</button>
+  </div>
+
+  <div id="halloween" class="festival">
+    <h2>🎃 Halloween</h2>
+    <img src="image/Halloween.png" alt="Halloween">
+    <p>Halloween is celebrated on October 31st. People dress up in costumes, carve pumpkins, and go trick-or-treating. It’s a fun night of spooky decorations and candy!</p>
+  </div>
+
+  <div id="christmas" class="festival">
+    <h2>🎄 Christmas</h2>
+    <img src="image/Christmas.jpg" alt="Christmas">
+    <p>Christmas is celebrated on December 25th. Families exchange gifts, decorate trees, and enjoy festive meals to honor the birth of Jesus Christ.</p>
+  </div>
+
+  <div id="newyear" class="festival">
+    <h2>🎆 New Year</h2>
+    <img src="image/New years.png" alt="New Year">
+    <p>New Year marks the beginning of a new calendar year. People celebrate with fireworks, parties, and resolutions for a fresh start!</p>
+  </div>
+
+  <footer>© 2025-2026 Festival Celebrations | Created by Daniel Le</footer>
+
+  <script>
+    function showHalloween() {
+      document.getElementById("halloween").style.display = "block";
+    }
+
+    function showChristmas() {
+      document.getElementById("christmas").style.display = "block";
+    }
+
+    function showNewYear() {
+      document.getElementById("newyear").style.display = "block";
+    }
+
+    function hideHalloween() {
+      document.getElementById("halloween").style.display = "none";
+    }
+
+    function hideChristmas() {
+      document.getElementById("christmas").style.display = "none";
+    }
+
+    function hideNewYear() {
+      document.getElementById("newyear").style.display = "none";
+    }
+  </script>
+</body>
+</html>

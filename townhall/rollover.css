@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eee;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  border: 2px solid #d8b18f;
+  width: 800px;
+  margin: 20px auto;
+  background-color: #f4f4f4;
+}
+
+header {
+  background: linear-gradient(to right, #f4e0ca, #ffffff);
+  border: 1px solid #c9a87b;
+  padding: 10px;
+}
+
+#header-left {
+  text-align: left;
+  margin-right: 25px;
+}
+
+.header-top {
+  display: flex; 
+  align-items: center;
+  gap: 15px; 
+  margin-bottom: 5px;
+}
+
+.header-top p {
+  font-weight: bold;
+  font-size: 16px; 
+  color: #4a2f1e; 
+  margin: 0; 
+  line-height: 1.2;
+}
+
+
+#logo {
+  width: 85px;
+  height: auto; 
+  display: block; 
+  margin-bottom: 5px;
+}
+
+main {
+  display: flex;
+  padding: 20px;
+}
+
+#speakers {
+  width: 200px;
+}
+
+#speakers h2 {
+  color: #800000;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#speakers p {
+  margin: 10px 0 5px 0;
+  font-size: 14px;
+}
+
+#speakers a {
+  color: #0044cc;
+  text-decoration: none;
+}
+
+#speakers a:hover {
+  text-decoration: underline;
+}
+
+#speakers img {
+  width: 80px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#rollover {
+  flex: 1;
+  padding-left: 30px;
+}
+
+#rollover h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#image-roll {
+  width: 260px;
+  height: 200px;
+  background-image: url("images/sampson_dinosaur.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #000;
+}
+
+#image-roll:hover {
+  background-image: url("images/sorkin_desk260.jpg");
+}
+

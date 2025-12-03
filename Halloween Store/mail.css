@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0; 
+    background: url("image/bats.gif") repeat;
+    background-color: black;
+}
+
+header {
+  background: linear-gradient(orange, gold);
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 5px solid black;
+  position: relative;
+}
+
+.container {
+  width: 900px;
+  margin: 30px auto; 
+  border: 5px solid black;
+  background: linear-gradient(orange, #fff);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+header img {
+    width: 80px; 
+    height: 80px; 
+    position: absolute;
+    left: 30px; 
+    top: 15px;
+}
+
+.top-nav {
+    background-color: black;
+}
+
+.top-nav ul {
+    list-style-type: none;
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center;
+}
+
+.top-nav li a {
+    display: block;
+    color: white; 
+    text-decoration: none;
+    padding: 10px 20px; 
+}
+
+.top-nav a:hover {
+    background-color: gray;
+}
+
+.top-nav a.current {
+    color: orange; 
+}
+
+.side-nav {
+    float: left; 
+    width: 150px; 
+    margin: 20px;
+}
+
+.side-nav a {
+    display: block; 
+    background-color: orange;
+    color: black; 
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border: 2px solid black; 
+    padding: 10px; 
+    font-weight: bold; 
+}
+
+.side-nav a:hover {
+    background-color: #ffd580;
+}
+
+section {
+    margin-left: 200px; 
+    padding: 20px; 
+}
+
+form label {
+    display: inline-block;
+    width: 120px; 
+    font-weight: bold;
+}
+
+form input[type="text"], 
+form input[type="email"] {
+    width: 250px; 
+    padding: 5px; 
+    margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+    background-color: orange;
+    border: 2px solid black; 
+    padding: 5px 15px; 
+    font-weight: bold;
+    cursor: pointer; 
+}
+
+form input[type="submit"]:hover {
+    background-color: #ffcc66;
+}
+
+footer {
+    clear: both; 
+    text-align: center; 
+    background-color: linear-gradient(gold, orange);
+    padding: 10px; 
+    border-top: 5px solid black; 
+}

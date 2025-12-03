@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Book</title>
+
+    <style>
+        span.error {
+            color: red;
+            font-size: 12px;
+        }
+        input {
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Grade Book</h2>
+    First Name:  
+    <input type="text" id="fname">
+    <span class="error" id="fnameErr"></span><br>
+
+    Last Name:  
+    <input type="text" id="lname">
+    <span class="error" id="lnameErr"></span><br>
+
+    Mark 1:
+    <input type="text" id="m1">
+    <span class="error" id="m1Err"></span><br>
+
+    Mark 2:
+    <input type="text" id="m2">
+    <span class="error" id="m2Err"></span><br>
+
+    Mark 3:
+    <input type="text" id="m3">
+    <span class="error" id="m3Err"></span><br>
+
+    <button onclick="validateTxt()">Validate</button>
+    <button onclick="printResult()">Print Result</button>
+
+    <p id="result"></p>
+
+    <script>
+        function validateTxt() {
+            let isValid = true;
+
+            let fname = document.getElementById("fname").value.trim();
+            let lname = document.getElementById("lname").value.trim();
+            let m1 = document.getElementById("m1").value.trim();
+            let m2 = document.getElementById("m2").value.trim();
+            let m3 = document.getElementById("m3").value.trim();
+
+            document.querySelectorAll("span.error").forEach(s => s.innerHTML = "");
+
+            if (fname === "") {
+                document.getElementById("fnameErr").innerHTML = "First Name is required";
+                isValid = false;
+            }
+
+            if (lname === "") {
+                document.getElementById("lnameErr").innerHTML = "Last Name is required";
+                isValid = false;
+            }
+
+            function validateMark(value, spanId) {
+                if (value === "") {
+                    document.getElementById(spanId).innerHTML = "Mark is required";
+                    return false;
+                }
+                if (isNaN(value)) {
+                    document.getElementById(spanId).innerHTML = "Must be a number";
+                    return false;
+                }
+                let num = Number(value);
+                if (num < 0 || num > 100) {
+                    document.getElementById(spanId).innerHTML = "Must be between 0 and 100";
+                    return false;
+                }
+                return true;
+            }
+
+            if (!validateMark(m1, "m1Err")) isValid = false;
+            if (!validateMark(m2, "m2Err")) isValid = false;
+            if (!validateMark(m3, "m3Err")) isValid = false;
+
+            if (isValid) {
+                alert("All inputs are valid!");
+            }
+
+            return isValid;
+        }
+
+        function printResult() {
+            if (!validateTxt()) {
+                document.getElementById("result").innerHTML = "Fix errors before printing result.";
+                return;
+            }
+
+            let m1 = Number(document.getElementById("m1").value);
+            let m2 = Number(document.getElementById("m2").value);
+            let m3 = Number(document.getElementById("m3").value);
+            let avg = (m1 + m2 + m3) / 3;
+
+            let grade = "";
+            if (avg >= 90) grade = "Awesome";
+            else if (avg >= 80) grade = "Very Good";
+            else if (avg >= 50) grade = "OK";
+            else grade = "Fail";
+
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+
+            document.getElementById("result").innerHTML =
+                fname + " " + lname + " — Average: " + avg.toFixed(2) + " — Grade: <b>" + grade + "</b>";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"> 
+ <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1"/> 
+    <title>PetWeather Dashboard</title>
+    <style>
+            :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.4}
+             body{display:flex;min-height:100vh;align-items:center;justify-content:center;background:linear-gradient(180deg,#f0f7ff, #ffffff);margin:0}
+            .card{width:min(900px,95%);background:white;border-radius:12px;box-shadow:0 8px 20px rgba(20,30,60,0.08);padding:20px}
+             header{display:flex;align-items:center;justify-content:space-between}
+             h1{font-size:1.25rem;margin:0}
+            .controls{display:flex;gap:10px;align-items:center;margin-top:12px}
+            input[type="text"]{padding:8px;border-radius:8px;border:1px solid #ddd;min-width:220px}
+            button{padding:8px 12px;border-radius:8px;border:0;background:#0066cc;color:white;cursor:pointer}
+            button.alt{background:#888}
+            .row{display:flex;gap:20px;margin-top:18px}
+            .pane{flex:1;min-height:220px;padding:12px;border-radius:10px;border:1px solid #eee;background:#fafafa}
+            img{max-width:100%;border-radius:8px;display:block}
+           .small{font-size:.9rem;color:#555}
+           .error{color:#b40; font-weight:600}
+           footer{display:flex;justify-content:space-between;margin-top:12px;font-size:.85rem;color:#666}
+           @media (max-width:720px){.row{flex-direction:column}}
+    </style>
+ </head>
+
+ <div class="card" id="app">
+    <header> 
+        <h1>PetWeather Dashboard</h1>
+        <div class="small">Demo: Open-meteo + Dog CEO APIs</div>
+    </header>
+
+    <div class="controls"> 
+        <input id="locInput" type="text" placeholder="Enter 'city' or 'lat,lon' (e.g. 43.7,-79.4)" />
+        <button id="searchBtn">Search Weather</button>
+        <button id="dogBtn" class="alt">Random Dog</button>
+        <button id="savePref" class="alt">Save Preference</button>
+    </div>
+
+    <div class="row"> 
+        <section class="pane" id="weatherPane">
+            <div id="weatherStatus" class="small">No weather fetched yet.</div>
+            <pre id="weatherData" style="display:none;white-space:pre-wrap;"></pre>
+            <duv ud="weatherError" class="error" style="display:none"></duv>
+        </section>
+
+        <section class="pane" id="dogPane">
+            <div id="dogStatus" class="small">No Dog Yet.</div>
+            <div id="dogImageWarp" style="margin-top:8px"></div>
+            <div id="dogError" class="error" style="display:none"></div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="small">Preferences saved to localStorage as JSON</div>
+        <div class="small">See console for extra logs</div>
+    </footer>
+ </div>
+
+ <script> 
+const $ = sel => document.querySelector(sel);
+
+let state = {
+  locationInput: '',
+  preferences: { defaultLocation: '' },
+  lastWeather: null,
+  lastDog: null
+};
+
+function loadPreferences() {
+    const raw = localStorage.getItem('petweather_prefs');
+    if(raw){
+        try{
+            const parsed = JSON.parse(raw); 
+            state = {...state, preferences: {...state.preferences, ...parsed}}; 
+            console.log('Loading prefs', state.preferences); 
+        }catch(e) {
+            console.warn('Could not parse stored prefs', e); 
+          }
+        }
+    }
+    loadPreferences();
+
+
+    class Pet {
+        constructor(name){ this.name = name || 'Unnamed'; }
+        speak() { return '${this.name} makes a sound.'; }
+        info() { return {name:this.name}; }
+    }
+
+    class Dog extends pet {
+        constructor(name, breed){ super(name); this.breed = breed || 'unknown'; }
+        speak(){ return '${this.name} barks!'; }
+        info(){ return {...super.info(), breed:this.breed}; }
+
+        fetchRandomImage() {
+            return fetch('https://dog.ceo/api/breeds/image/random')
+            .then(r => {
+                if(!r.ok) throw new error('Network response not ok for dog image'); 
+                return r.json(); 
+            })
+            .then(j => {
+                if(j.status !== 'sucess') throw new Error('Dog API returned an error'); 
+                return j.message; 
+            }); 
+        }
+    }
+
+    class WeatherService {
+        static async fetchWeatherByLatLon(lat, lon){
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}&current_weather=true`;
+            try{
+                const res=await fetch(url); 
+                if(!res.ok) throw new Error('Weather network errorL ' +res.status); 
+                const body = await res.json(); 
+                if(!body.current_weather) throw new Error('No current weather returned'); 
+                return body; 
+            }catch(err){
+                throw err; 
+            }
+        }
+    }
+
+
+    async function handleSearchWeather() {
+        const input = ($('#locInput').value || '').trim(); 
+        state.locationInput = input; 
+        $('#weatherStatus').textContent = 'Fetching weather...'; 
+        $('#weatherData').style.display = 'none'; 
+        $('#weatherError').style.display = 'none'; 
+
+        let lat, lon; 
+        if(input.inlcudes(',')){
+            [lat, lon] = input.split(',').map(s => s.trim());
+        } else if(state.preferences.defaultLocation){
+            const pref = state.preferences.defaultLocation; 
+            if(pref.includes(',')) [lat,lon] = pref.split(',').map(s=>s.trim()); 
+        }
+
+          if(!lat || !lon){
+
+            $('#weatherError').textContent = 'Please enter coordinates like "43.7,-79.4" or save a default lat,lon preference.';
+    $('#weatherError').style.display = 'block';
+    return;
+  }
+
+  try{
+    const json = await WeatherService.fetchWeatherByLatLon(lat, lon); // async/await + try/catch
+    state.lastWeather = json;
+    $('#weatherStatus').textContent = `Current temperature: ${json.current_weather.temperature}° (wind ${json.current_weather.windspeed} km/h)`;
+    $('#weatherData').textContent = JSON.stringify(json, null, 2);
+    $('#weatherData').style.display = 'block';
+
+    localStorage.setItem('lastWeather', JSON.stringify({timestamp:Date.now(), coords:[lat,lon], summary:json.current_weather}));
+  }catch(err){
+    $('#weatherStatus').textContent = 'Weather fetch failed';
+    $('#weatherError').textContent = err.message || String(err);
+    $('#weatherError').style.display = 'block';
+    console.error('Weather error', err);
+    
+     }
+  }
+
+  function handleRandomDog() {
+    $('#dogStatus').textContent = 'Fetching a happy dog...';
+    $('#dogImageWrap').innerHTML = ''; 
+    $('#dogError').stye.display = 'none';
+
+    const dog = new Dog('Buddy','Mixed');
+    dog.fetchRandomImage() 
+    .then(url => {
+        state.lastDog = url; 
+        $('#dogStatus').textContent = 'Random dog image fetched.'; 
+         $('#dogImageWrap').innerHTML = `<img src="${url}" alt="dog image" loading="lazy" />` +
+        `<div style="margin-top:6px"><button id="favBtn">Favorite this image</button></div>`;
+
+        $('#favBtn').addEventListener('click', () => {
+        let favs = [];
+        try{ favs = JSON.parse(localStorage.getItem('dog_favs') || '[]'); }catch(e){ favs = []; }
+        favs = [...favs, url]; 
+        localStorage.setItem('dog_favs', JSON.stringify(favs));
+        alert('Saved to favorites. Check localStorage key "dog_favs"');
+      });
+
+  })
+  .catch(err => {
+    $('#dogStatus').textContent = 'Dog fetch failed'; 
+    $('#dogError').textContent = string(err); 
+    $('#dogError').style.display = 'block'; 
+    console.log('Dog error', err);
+  });
+  
+}
+
+
+// This would simulate an async operation by using a callback 
+function simulateAsyncWithCallback(value, cb) {
+    setTimeout(() => {
+        if(Math.random() < 0.12) return cb(new Error('Simulated random failure')); 
+        cb(null, 'Result for ${value} at ${new Date().toLocaleTimeString()}');
+    }, 700); 
+}
+
+ simulateAsyncWithCallback('demo', (err, res) => {
+    if(err) console.warn('Callback error example:', err); 
+    else console.log('Callback success example:', res);
+ }); 
+
+ $('#searchBtn').addEventListener('click', handleSearchWeather); 
+ $('#dogBtn').addEventListener('click', handleRandomDog); 
+
+ $('#savePref').addEventListener('click', () => {
+    const val = ($('#locInput').value || '').trim(); 
+    if(!val){ alert('Enter a location first (like 43.7,-79.4)'); return; }
+    state = {...state, preferences: {...state.preferences, defaultLocation: val}};
+    localStorage.setItem('petweather_prefs', JSON.stringify(state.preferences));
+    alert('Preference saved: '+ val); 
+ });
+
+ $('#locInput').addEventListener('change', (e) => {
+    state.locationInput = e.target.value; 
+ }); 
+
+</script>
+</body>
+</html>

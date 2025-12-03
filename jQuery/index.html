@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>JQuery Exercise</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <style> 
+            #container {
+                border: 2px solid #c00; 
+                padding: 15px; 
+                width: 300px; 
+                margin-bottom: 20px;
+            }
+
+            #capital {
+                font-weight: bold;
+            }
+
+            #hoverPara {
+                margin-top: 20px;
+                font-weight: bold;
+                cursor: pointer; 
+            }
+
+            #bgPara {
+                cursor: pointer; 
+            }
+        </style>
+    </head>
+
+    <body> 
+
+        <h3>Create below page:</h3>
+
+        <div id="container"> 
+
+
+       <p><strong>Country:</strong></p>
+       <p>CANADA</p>
+
+     <p><strong>Capital:</strong></p>
+       <p id="capital">OTTAWA</p>
+
+       <button id="hideBtn">Hide capital name</button>
+       <button id="showBtn">Show capital name</button>
+       <button id="toggleBtn">Toggle</button>
+
+       <br><br>
+
+       <p id="hoverPara">Hover on this paragraph for Yellow</p>
+       <p id="bgPara">Click on this paragraph for Background Image</p>
+     </div>
+
+
+
+     <script> 
+
+        $(document).ready(function () {
+            $("#hideBtn").click(function () {
+                $("#capital").hide(); 
+            });
+
+            $('#showBtn').click(function () {
+                $("#capital").show();
+            }); 
+
+            $("#toggleBtn").click(function () {
+             $("#capital").toggle();
+            });
+
+            $("#hoverPara").hover(
+            function () {
+            $("body").css("background-color", "yellow");
+        },
+        function () {
+            $("body").css("background-color", "white");
+        }
+    );
+
+    $("#bgPara").click(function () {
+        $("body").css({
+            "background-image": "url('https://picsum.photos/600/400')",
+            "background-size": "cover"
+        });
+    });
+
+});
+
+     </script>
+    </body>
+</html>

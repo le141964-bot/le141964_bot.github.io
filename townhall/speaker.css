@@ -1,0 +1,128 @@
+body {
+  background-color: #f0e0cc;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+#page {
+  width: 900px; 
+  margin: 20px auto; 
+  background: #fff; 
+  border: 2px solid #800000; 
+  padding: 15px; 
+}
+
+#container {
+  border: 4px solid #990000;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #FFF8E9;
+  padding: 20px;
+}
+
+.main-image {
+  float: right;
+  margin-left: 20px;
+}
+
+header {
+  border-bottom: 3px solid #c96;
+  margin-bottom: 10px;
+}
+
+#logo {
+  width: 70px; 
+  height: auto; 
+  margin-bottom: 5px;
+}
+
+aside a:hover {
+  font-style: italic;
+}
+
+#page {
+  background-color: white;
+  width: 800px;
+  margin: 30px auto;
+  border: 2px solid #a00;
+  padding: 15px;
+}
+
+header {
+  border-bottom: 2px solid #a00;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+#logo {
+  float: left;
+  margin-right: 15px;
+}
+
+header h1 {
+  color: #a00;
+  margin: 0;
+}
+
+header h2 {
+  font-style: italic;
+  color: #555;
+  margin: 0;
+}
+
+aside {
+  float: left;
+  width: 200px;
+}
+
+
+#image_rollovers img {
+  height: 75px; 
+  width: auto; 
+}
+
+aside a {
+  color: #0000cc;
+  text-decoration: none;
+}
+
+aside a:hover {
+  font-style: italic;
+}
+
+main {
+  margin-left: 220px;
+}
+
+#rollover {
+  width: 260px;
+  height: 260px;
+  background-image: url("images/sampson_dinosaur.jpg");
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-position: center;
+  border: 1px solid #000;
+  
+}
+
+#rollover:hover {
+  background-image: url("images/sampson75.jpg");
+}
+
+footer {
+  clear: both;
+  border-top: 2px solid #a00;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  color: #666;
+}

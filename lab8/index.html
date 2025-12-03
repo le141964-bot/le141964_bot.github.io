@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <title> Lab 8 - JavaScript Events</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 20px; 
+            }
+
+            #hoverDiv {
+                border: 2px solid black; 
+                padding: 15px; 
+                width: 150px; 
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                border: 1px solid gray; 
+                padding: 8px; 
+                margin: 5px 0; 
+                cursor: pointer; 
+            }
+
+            input {
+                padding: 5px; 
+                margin-top: 5px;
+            }
+
+            hr {
+                margin: 20px 0; 
+            }
+        </style>
+    </head>
+
+    <h1> Lab 9 JavaScript Event Handling</h1>
+
+    <h2>Task 1: Click Event</h2>
+    <button id="clickBtn">Click me</button>
+
+    <hr> 
+
+    <h2>Task 2: Mouse Event</h2>
+    <div id="hoverDiv">Hover over me</div>
+    
+    <hr> 
+
+    <h2>Task 3: Keyboard Events</h2>
+    <input type="text" id="keyInput" placeholer="Type Something">
+
+    <hr> 
+
+    <h2>Task 4: Form Event</h2>
+    <label for="username">Username: </label>
+    <input type="text" id="username" name="username" placeholder="Enter Username">
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+
+<h2>Task 5: focus and Blur Events</h2>
+<input type="text" id="focusInput" placeHolder="Focus on me">
+
+<hr>
+
+<h2>Task 6: Events Delegation</h2>
+<ul id="itemList">
+    <li>Item 1</li>
+     <li>Item 2</li>
+      <li>Item 3</li>
+       <li>Item 4</li>
+        <li>Item 5</li>
+</ul>
+
+
+    <script>
+        const clickBtn = document.getElementById("clickBtn");
+        clickBtn.addEventListener("click", function() {
+            clickBtn.textContent = "Clicked!";
+        });
+
+        const hoverDiv = document.getElementById("hoverDiv");
+        hoverDiv.addEventListener("mouseenter", function() {
+            hoverDiv.style.backgroundColor = "lightblue";
+        });
+        hoverDiv.addEventListener("mouseleave", function() {
+            hoverDiv.style.backgroundColor = "";
+        });
+
+        const keyInput = document.getElementById("keyInput");
+        keyInput.addEventListener("keyup", function(event) {
+            console.log("Key pressed:", event.key);
+        });
+
+        const userForm = document.getElementById("userForm");
+        userForm.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            const username = document.getElementById("username").value;
+            console.log("Username entered:", username);
+        });
+
+        const focusInput = document.getElementById("focusInput");
+        focusInput.addEventListener("focus", function() {
+            focusInput.style.backgroundColor = "lightyellow";
+        });
+        focusInput.addEventListener("blur", function() {
+            focusInput.style.backgroundColor = "";
+        });
+
+        const itemList = document.getElementById("itemList");
+        itemList.addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                event.target.style.backgroundColor = "lightgreen";
+            }
+        });
+    </script>
+
+</body> 
+</html>

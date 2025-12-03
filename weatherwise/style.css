@@ -1,0 +1,49 @@
+body {
+    background: #e8f0ff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px; 
+}
+
+.weather-card {
+    background: linear-gradient(135deg, #6faaff, #a6d4ff);
+    padding: 20px; 
+    border-radius: 20px; 
+    width: 350px; 
+    color: white; 
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+ #weatherIcon {
+    width: 90px; 
+    height: 90px; 
+ }
+
+ .weather-details p {
+    margin: 5px 0; 
+    font-size: 18px; 
+ }
+
+ .forecast-grid {
+    display: flex; 
+    gap: 15px; 
+    margin-top: 20px;
+ }
+
+ .forecast-card {
+    background: white;
+    padding: 15px; 
+    width: 120px; 
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+ }
+
+ .forecast-card img {
+    width: 60px; 
+ }

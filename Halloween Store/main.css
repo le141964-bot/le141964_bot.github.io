@@ -1,0 +1,182 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  border: 5px solid black;
+  background-image: linear-gradient(orange, #fff);
+}
+
+#container {
+  width: 960px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+}
+
+header {
+  background: linear-gradient(orange, gold);
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 5px solid black;
+}
+.page {
+  width: 950px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border: 1px solid #e7a578;
+}
+header img {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-left: 20px;
+}
+
+section {
+  margin-left: 200px; 
+  padding: 20px;
+}
+
+section h2 {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+section h2::first-letter {
+  font-size: 200%;     
+  font-weight: bold;
+  color: black;
+}
+
+section img {
+  display: block;
+  margin: 10px 0;
+}
+
+section a {
+  color: blue;
+  text-decoration: underline;
+}
+
+section a:hover {
+  color: purple;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+h2 {
+  margin: 5px 0 15px 0;
+  font-weight: normal;
+}
+
+main {
+    overflow: hidden; 
+    padding: 20px 40px; 
+    background-color: white;
+}
+
+section p {
+    line-height: 1.5;
+}
+
+.top-nav {
+  background-color: black;
+}
+
+.top-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.top-nav li {
+  margin: 0;
+}
+
+.top-nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.top-nav a:hover {
+  background-color: gray;
+}
+
+.top-nav a.current {
+  color: orange;
+}
+
+.side-nav {
+  float: left;
+  width: 140px;
+  margin: 20px;
+}
+
+.side-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-nav a {
+  display: block;
+  background-color: #f4a52c;
+  border: 3px solid black;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.side-nav a:hover {
+  background-color: #ffd580;
+}
+
+main {
+  overflow: hidden;
+  padding: 20px;
+}
+
+section p:first-of-type::first-letter {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+footer {
+  clear: both;
+  text-align: center;
+  background: linear-gradient(gold, orange);
+  padding: 10px;
+  border-top: 5px solid black;
+}
+
+
+@media only screen and (max-width: 800px) {
+  body {
+    background-image: none;
+    border: none;
+    font-size: 0.5em;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  header h1,
+  header h2,
+  section h2 {
+    font-size: 0.8em;
+  }
+}
