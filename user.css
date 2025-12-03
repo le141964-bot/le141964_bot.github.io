@@ -1,0 +1,108 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #7470703b;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  width: 100%;   
+  margin: 0;    
+  padding: 15px 30px;
+  box-sizing: border-box;    
+  background: linear-gradient(30deg, #9d9090, #2c2b2b);
+  color: rgb(250, 244, 244);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html, body {
+  height: 100%; 
+  margin: 0;
+  display: flex;
+  flex-direction: column; 
+}
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+header button, header .menu-topple {
+  display: none; 
+}
+nav {
+   flex: 1;
+   display: flex;
+   justify-content: flex-end;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav a.active {
+  color: #ffffff;
+}
+nav a:hover::after {
+  width: 20%
+}
+.icons img {
+  width: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+#subscribe-section {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+#subscribe-section h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+  margin-left: 55px;
+}
+#subscribe-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+#subscribe-section label {
+  text-align: center;
+  padding-right: 0px;
+}
+#subscribe-section input {
+  max-width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+#subscribe-section button {
+  grid-column: 2;
+  width: 150px;
+  background-color: yellow;
+  border: 2px solid black;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#subscribe-section a {
+  color: #000;
+  text-decoration: none;
+}
+footer { 
+  background-color: #b7b2b2;
+  color: white; 
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  width: 100%;
+}
+footer a {
+  color: black;
+}
