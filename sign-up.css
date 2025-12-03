@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #7470703b;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  width: 100%;   
+  margin: 0;    
+  padding: 15px 30px;
+  box-sizing: border-box;    
+  background: linear-gradient(30deg, #9d9090, #2c2b2b);
+  color: rgb(250, 244, 244);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html, body {
+  height: 100%; 
+  margin: 0;
+  display: flex;
+  flex-direction: column; 
+}
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+p {
+  text-align: center;
+  font-size: 20px;
+}
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+header button, header .menu-topple {
+  display: none; 
+}
+nav {
+   flex: 1;
+   display: flex;
+   justify-content: flex-end;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav a.active {
+  color: #ffffff;
+}
+nav a:hover::after {
+  width: 20%
+}
+.icons img {
+  width: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+footer { 
+  background-color: #b7b2b2;
+  color: white; 
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  width: 100%;
+}
+footer a {
+  color: black;
+}
