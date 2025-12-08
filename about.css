@@ -1,0 +1,54 @@
+.about-hero {
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+header {
+  background: linear-gradient(30deg, #9d9090, #2c2b2b);
+  color: rgb(250, 244, 244);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+header nav {
+    padding-left: 130px;
+}
+
+.about-hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.about-content h2 {
+    margin-top: 40px;
+    color: #333;
+}
+
+.about-content ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+    margin-top: 40px;
+}
