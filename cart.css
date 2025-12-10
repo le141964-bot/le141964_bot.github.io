@@ -1,0 +1,74 @@
+body {
+    margin: 0; 
+    font-family: 'Courier New', Courier, monospace;
+    background: #111;
+    color: white; 
+}
+
+header {
+    background: #333;
+    padding: 15px; 
+}
+
+nav {
+    display: flex; 
+    justify-content: center;
+    gap: 40px; 
+}
+
+nav a {
+    color: white; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: 50px auto; 
+    padding: 20px; 
+}
+
+.cart-item {
+    display: flex; 
+    align-items: center;
+    gap: 20px; 
+    background: 22;
+    padding: 15px; 
+    border-radius: 10px;
+    margin-bottom: 20px; 
+}
+
+.cart-item img {
+    width: 100px; 
+    border-radius: 10px;
+}
+
+.details h2 {
+    margin: 0; 
+}
+
+.quantity button {
+    background: #444; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+    color: white; 
+}
+
+.quantity span {
+    margin: 0 10px;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 20px; 
+}
+
+.checkout-btn {
+    padding: 12px 25px; 
+    background: #ffdd88;
+    border: none; 
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer; 
+}
