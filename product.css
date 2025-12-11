@@ -26,6 +26,23 @@ header {
     font-weight: 500;
 }
 
+.add-cart-btn {
+    display: inline-block;
+    background: #c6c6c6;       
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-cart-btn:hover {
+    background: #b3b3b3;
+}
+
 .header nav a.active {
     border-bottom: 2px solid #d5d3da;
 }
