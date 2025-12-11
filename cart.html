@@ -1,44 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Shopping Cart</title>
-        <link rel="stylesheet" href="cart.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <style>
+        body {
+            background: #222;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+        .cart-box {
+            margin-top: 50px;
+        }
+        img {
+            width: 150px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+        .checkout {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: yellow;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
 
-    <body>
+<h1>Your Cart</h1>
 
-        <header>
-            <nav>
-            <a href="index.html">Home</a>
-            <a href="product.html" class="active">Products</a>
-            <a href="user.html" class="active">Account</a>
-            <a href="about.html">About</a>
-            </nav>
-        </header>
+<div class="cart-box">
+    <img id="pImg" src="">
+    <h2 id="pName"></h2>
+    <p>$<span id="pPrice"></span></p >
 
-        <section class="cart-container">
-            <h1>Your Cart</h1>
+    <div>
+        <button onclick="minusQty()">-</button>
+        <span id="qtyNum">1</span>
+        <button onclick="addQty()">+</button>
+    </div>
 
-            <div class="cart-item">
-                <img src="image/Pastel-shirt.jpg">
-                <div class="details">
-                    <h2>Moon T-Shirt</h2>
-                    <p>15.99</p>
-                </div>
-                <div class="quantity">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                </div>
-                <div class="price">$15.99</div>
-            </div>
+    <h2>Total: $<span id="total"></span></h2>
 
-            <div class="cart-total">
-                <h3>Total: $15.99</h3>
-                <button class="checkout-btn">checkout-btn</button>
-            </div>
-        </section>
-    </body>
+    <button class="checkout" onclick="checkout()">Checkout Purchase</button>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const item = params.get("product");
+
+    let productName = "";
+    let productPrice = 0;
+    let productImage = "";
+
+    if (item === "hoodie") {
+    productName = "Pastel Moon Hoodie";
+    productPrice = 25.99;
+    productImage = "image/pastel-moon-hoodie.jpg";
+} 
+else if (item === "cap") {
+    productName = "Pastel Moon Cap";
+    productPrice = 15.99;
+    productImage = "image/pastel-moon-cap.jpg";
+}
+else if (item === "case") {
+    productName = "Pastel Moon Phone Case";
+    productPrice = 19.99;
+    productImage = "image/pastel-phone-case.jpg";
+}
+else {
+    productName = "Moon Phase Art T-Shirt";
+    productPrice = 10.99;
+    productImage = "image/Pastel-shirt.jpg";
+}
+
+    document.getElementById("pName").innerText = productName;
+    document.getElementById("pPrice").innerText = productPrice.toFixed(2);
+    document.getElementById("pImg").src = productImage;
+
+    let qty = 1;
+
+    function update() {
+        document.getElementById("qtyNum").innerText = qty;
+        document.getElementById("total").innerText = (qty * productPrice).toFixed(2);
+    }
+
+    function addQty() {
+        qty++;
+        update();
+    }
+
+    function minusQty() {
+        if (qty > 1) qty--;
+        update();
+    }
+
+    function checkout() {
+        alert("Thank you for your purchase!");
+    }
+
+    update();
+</script>
+
+</body>
 </html>
