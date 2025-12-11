@@ -31,7 +31,7 @@ header button, header .menu-topple {
 
 nav {
    flex: 1;
-   margin-left: 950px;
+   margin-left: 1020px;
 }
 
 nav a {
@@ -69,6 +69,37 @@ nav a:hover::after {
   padding: 30px 200px;
   text-align: center;
 }
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.search-input {
+    width: 350px;
+    padding: 10px 15px;
+    border-radius: 20px 0 0 20px;
+    border: 2px solid #555;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    border: 2px solid #555;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    background: #444;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.search-btn:hover {
+    background: #222;
+}
 
 .hero-content h2 {
   font-size: 1.5em;
@@ -76,6 +107,22 @@ nav a:hover::after {
   color: #000;
   margin-bottom: 40px;
 }
+
+.product-link {
+  text-decoration: none;  
+  color: inherit;          
+  display: block;         
+}
+
+.product-link .product {
+  transition: transform 0.1s ease;
+}
+
+.product-link:hover .product {
+  transform: scale(1.02); 
+  cursor: pointer;
+}
+
 
 .shop-btn {
   background-color: #727272;
