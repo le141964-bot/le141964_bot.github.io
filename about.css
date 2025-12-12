@@ -4,22 +4,49 @@
     text-align: center;
     padding: 80px 20px;
 }
+
 header {
   background: linear-gradient(30deg, #9d9090, #2c2b2b);
   color: rgb(250, 244, 244);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 5x 5px;
 }
 
 header nav {
-    padding-left: 130px;
+    padding-left: 40px;
+}
+
+.icons img {
+    width: 26px;
+    margin-left: 12px;
+    cursor: pointer;
+    filter: brightness(0) invert(1); 
+    transition: 0.3s ease;
+}
+
+.icons img:hover {
+    transform: scale(1.15);
+    filter: brightness(2); 
 }
 
 .about-hero h1 {
     font-size: 48px;
     margin-bottom: 10px;
+}
+
+.logo {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff;
+    }
+    to {
+        text-shadow: 0 0 20px #d6b3ff, 0 0 35px #a07bff;
+    }
 }
 
 .about-hero p {
