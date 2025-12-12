@@ -43,6 +43,20 @@ nav a {
     border-radius: 10px;
 }
 
+.logo {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff;
+    }
+    to {
+        text-shadow: 0 0 20px #d6b3ff, 0 0 35px #a07bff;
+    }
+}
+
+
 .details h2 {
     margin: 0; 
 }
@@ -65,7 +79,7 @@ nav a {
 }
 
 .checkout-btn {
-    padding: 12px 25px; 
+    padding: 10px 15px; 
     background: #ffdd88;
     border: none; 
     border-radius: 5px;

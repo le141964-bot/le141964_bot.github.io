@@ -16,7 +16,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 5x 5px;
 }
 
 .logo {
@@ -31,7 +31,7 @@ header button, header .menu-topple {
 
 nav {
    flex: 1;
-   margin-left: 1020px;
+   margin-left: 1000px;
 }
 
 nav a {
@@ -66,9 +66,10 @@ nav a:hover::after {
   align-items: center;
   flex-direction: column; 
   background-color: #e0dfdf; 
-  padding: 30px 200px;
-  text-align: center;
+  padding: 30px 300px;
+  text-align: top;
 }
+
 .search-container {
     display: flex;
     justify-content: center;
@@ -97,6 +98,33 @@ nav a:hover::after {
     transition: 0.2s;
 }
 
+.logo {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff;
+    }
+    to {
+        text-shadow: 0 0 20px #d6b3ff, 0 0 35px #a07bff;
+    }
+}
+
+.toggle-btn {
+  background: none; 
+  border: none; 
+  font-size: 24px; 
+  cursor: pointer; 
+  margin-left: 15px; 
+}
+
+.dark {
+  background: #1a1a1a; 
+  color: white;
+}
+.dark nav a { color: white; }
+
 .search-btn:hover {
     background: #222;
 }
@@ -123,6 +151,28 @@ nav a:hover::after {
   cursor: pointer;
 }
 
+.icons img {
+    width: 26px;
+    margin-left: 12px;
+    cursor: pointer;
+    filter: brightness(0) invert(1); 
+    transition: 0.3s ease;
+}
+
+.icons img:hover {
+    transform: scale(1.15);
+    filter: brightness(2); 
+}
+
+.logo { 
+  font-size: 40px; 
+  color: white; 
+  animation: glow 2s infinte alternate; 
+}
+@keyframes glow {
+  from { text-shadow: 0 0 5px #fff; }
+  to { text-shadow: 0 0 20px #c7a9ff; }
+}
 
 .shop-btn {
   background-color: #727272;
@@ -193,7 +243,6 @@ featured-products {
 .search-section {
   margin-top: 50px;
 }
-
 
 footer { 
   background-color: #b7b2b2;

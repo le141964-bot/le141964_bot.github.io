@@ -11,7 +11,7 @@
     <header class="header">
         <h1 class="logo">MOON BRAND</h1>
         <nav>
-            <a href=" ">Home</a >
+            <a href="index.html">Home</a>
             <a href="product.html">Products</a >
             <a href="user.html">Account</a >
             <a href="about.html">About</a >
@@ -22,9 +22,32 @@
         <h2>Pastel Moon Collection</h2>
     </section>
 
-    <section class="products">
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search product...">
+    </div>
 
-        <!-- Hoodie -->
+    <script>
+        
+const searchInput = document.getElementById("searchInput");
+const products = document.querySelectorAll(".product-card");
+
+searchInput.addEventListener("input", function () {
+    let searchValue = searchInput.value.toLowerCase();
+
+    products.forEach(product => {
+        let name = product.querySelector("h3").textContent.toLowerCase();
+        let desc = product.querySelector(".desc").textContent.toLowerCase();
+
+        if (name.includes(searchValue) || desc.includes(searchValue)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+});
+</script>
+
+    <section class="products">
         <div class="product-card">
             <img src="image/pastel-moon-hoodie.jpg">
             <h3>Pastel Moon Hoodie</h3>
@@ -33,7 +56,6 @@
             <a href="cart.html?product=hoodie" class="add-cart-btn">Add to Cart</a >
         </div>
 
-        <!-- Cap -->
         <div class="product-card">
             <img src="image/pastel-moon-cap.jpg">
             <h3>Pastel Moon Cap</h3>
@@ -42,7 +64,6 @@
             <a href="cart.html?product=cap" class="add-cart-btn">Add to Cart</a >
         </div>
 
-        <!-- Phone Case -->
         <div class="product-card">
             <img src="image/pastel-phone-case.jpg">
             <h3>Pastel Moon Phone Case</h3>
@@ -51,7 +72,6 @@
             <a href="cart.html?product=case" class="add-cart-btn">Add to Cart</a >
         </div>
 
-        <!-- T-shirt -->
         <div class="product-card">
             <img src="image/Pastel-shirt.jpg">
             <h3>Moon Phase Art T-Shirt</h3>
@@ -64,4 +84,3 @@
 
 </body>
 </html>
-
