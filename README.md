@@ -1,31 +1,21 @@
-# Project Title 
+# MoonBrand Final Project
 
-Moon Brand is a simple front-end e-commerce website created for our Web Development final project.
-The site includes a homepage, product listings, functional cart pages, and an account/about page.
-It is designed as a beginner-friendly clothing brand site featuring a pastel “moon-themed” style.
-## Installation 
+## Overview
+MoonBrand is a platform-independent web storefront showcasing custom apparel like shirts, hoodies, and caps. It includes product pages, shopping cart functionality, and user sign-up.
 
-Steps to install and run the project 
+## How to Run
+Simply open `PhoneCart.html` in any modern browser. No installation or server required.
 
-git clone https://github.com/le141964-bot/le141964_bot.github.io.git
+## Folder Structure
+- `PhoneCart.html`, `index.html`, etc. — main pages
+- `*.css` — styling files
+- `image/` — all images used in the project
 
-Navigate into the project directory: 
-cd le141964_bot.github.io
+## Platform Independence
+All assets are locally stored. No external dependencies required. Works on Windows, macOS, and Linux.
 
-Run the Website
-
-Use the VS Code Live Server
-
-Browse the homepage
-Search (basic filtering script included if added)
-View products
-Click Add to Cart → takes you to cart.html?product=...
-Cart page automatically loads the correct item
-Navigate between pages with the navbar
-This demonstrates front-end concepts like:
-HTML structure, CSS layout/flexbox, linking, responsive sections, and basic JS functionality.
-
-Examples of how to use the project 
+## GitHub Repository
+Team Lead Repo: [https://github.com/le141964-bot/le141964_bot.github.io.git](https://github.com/le141964-bot/le141964_bot.github.io.git)
 
 ## Authors 
 
